@@ -15,7 +15,7 @@ class ProductService(IService):
         for product in self.product_repository.get_products():
             satisfy_condition = True
             if query.filters:
-                for field, value in query.filters:
+                for field, value in query.filters.items():
                     if product.get(field) != value:
                         satisfy_condition = False
                         break
@@ -25,7 +25,7 @@ class ProductService(IService):
                 count += 1
                 group_by_results[product.get(query.group_by, '')] = count
 
-            return total_count, group_by_results
+        return total_count, group_by_results
 
     def add(self, product):
         self.product_repository.add(product)

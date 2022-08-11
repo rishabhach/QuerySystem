@@ -3,7 +3,7 @@ from repository.irepository import IRepository
 
 class ProductRepository(IRepository):
 
-    def __int__(self):
+    def __init__(self):
         self.products = list()
 
     def add(self, product):

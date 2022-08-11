@@ -10,5 +10,5 @@ class Query(BaseModel):
     def __init__(self, filters, operator=Operator.AND, **kwargs):
         self.filters = filters
         self.operator = operator
-        self.group_by = kwargs.get(str(Constants.GROUP_BY))
+        self.group_by = kwargs.get(Constants.GROUP_BY.value, '')
         super(Query, self).__init__(**kwargs)
